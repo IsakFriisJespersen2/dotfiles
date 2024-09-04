@@ -1,0 +1,26 @@
+[env]
+TERM = "xterm-256color"
+
+[font.normal]
+family = "Hack Nerd Font Propo"
+style = "Regular"
+
+[[keyboard.bindings]]
+key = "H"
+mods = "Control|Shift"
+chars = "\u2660" ## ♠
+
+[[keyboard.bindings]]
+key = "J"
+mods = "Control|Shift"
+chars = "\u2661" ## ♡
+
+[[keyboard.bindings]]
+key = "K"
+mods = "Control|Shift"
+chars = "\u2662" ## ♢
+
+[[keyboard.bindings]]
+key = "L"
+mods = "Control|Shift"
+chars = "\u2664" ## ♤
