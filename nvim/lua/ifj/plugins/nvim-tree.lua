@@ -8,10 +8,29 @@ return {
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
 
+    local function on_attach(bufnr)
+      local api = require("nvim-tree.api")
+
+      local function opts(desc)
+        return { desc = "nvim-tree: " .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+      end
+
+      -- default mappings
+      api.config.mappings.default_on_attach(bufnr)
+
+      -- custom mappings
+      -- vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent,        opts('Up'))
+      vim.keymap.set("n", "?", api.tree.toggle_help, opts("Help"))
+      vim.keymap.set("n", "l", api.node.open.edit, opts("Open"))
+      vim.keymap.set("n", "h", api.node.navigate.parent_close, opts("Close Directory"))
+    end
+
     nvimtree.setup({
+      on_attach = on_attach,
       view = {
         width = 35,
         relativenumber = true,
+        side = "right",
       },
       -- change folder arrow icons
       renderer = {
@@ -44,7 +63,6 @@ return {
         ignore = false,
       },
     })
-
     -- set keymaps
     local keymap = vim.keymap -- for conciseness
 
@@ -52,5 +70,5 @@ return {
     keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer on current file" }) -- toggle file explorer on current file
     keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" }) -- collapse file explorer
     keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" }) -- refresh file explorer
-  end
+  end,
 }

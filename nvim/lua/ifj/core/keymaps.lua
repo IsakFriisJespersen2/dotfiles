@@ -3,6 +3,7 @@ vim.g.mapleader = " "
 local keymap = vim.keymap -- for conciseness
 
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
+-- keymap.set("v", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 
 -- jump multiple liness
 keymap.set("n", "<C-J>", "7j", { desc = "Jump 7 lines down" })
