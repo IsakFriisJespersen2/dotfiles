@@ -28,7 +28,7 @@ return {
     nvimtree.setup({
       on_attach = on_attach,
       view = {
-        width = 35,
+        width = 50,
         relativenumber = true,
         side = "right",
       },
@@ -56,6 +56,9 @@ return {
           },
         },
       },
+      update_focused_file = {
+        enable = true,
+      },
       filters = {
         custom = { ".DS_Store" },
       },
@@ -67,8 +70,8 @@ return {
     local keymap = vim.keymap -- for conciseness
 
     keymap.set("n", "<leader>ee", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle file explorer" }) -- toggle file explorer
-    keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFileToggle<CR>", { desc = "Toggle file explorer on current file" }) -- toggle file explorer on current file
-    keymap.set("n", "<leader>ec", "<cmd>NvimTreeCollapse<CR>", { desc = "Collapse file explorer" }) -- collapse file explorer
+    keymap.set("n", "<leader>ef", "<cmd>NvimTreeFindFile<CR>", { desc = "Toggle file explorer on current file" }) -- toggle file explorer on current file
+    keymap.set("n", "<leader>et", "<cmd>NvimTreeToggle<CR>", { desc = "Collapse file explorer" }) -- collapse file explorer
     keymap.set("n", "<leader>er", "<cmd>NvimTreeRefresh<CR>", { desc = "Refresh file explorer" }) -- refresh file explorer
   end,
 }
