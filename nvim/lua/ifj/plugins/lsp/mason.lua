@@ -33,9 +33,14 @@ return {
         "svelte",
         "lua_ls",
         "graphql",
+        "vuels",
         "emmet_ls",
         "prismals",
         "pyright",
+        "helm_ls",
+        "dockerls",
+        "docker_compose_language_service",
+        "yamlls",
       },
     })
 
