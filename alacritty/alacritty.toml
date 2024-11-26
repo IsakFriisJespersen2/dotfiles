@@ -43,3 +43,8 @@ chars = "\u2662" ## ♢
 key = "L"
 mods = "Control|Shift"
 chars = "\u2664" ## ♤
+
+[[keyboard.bindings]]
+key = "S"
+mods = "Control|Shift"
+chars = "\u2665" ## ♥
