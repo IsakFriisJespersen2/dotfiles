@@ -37,9 +37,9 @@ return {
         "emmet_ls",
         "prismals",
         "pyright",
-        "helm_ls",
         "dockerls",
         "docker_compose_language_service",
+        "helm_ls",
         "yamlls",
       },
     })
@@ -50,7 +50,7 @@ return {
         "stylua", -- lua formatter
         "isort", -- python formatter
         "black", -- python formatter
-        "pylint",
+        -- "pylint",
         "eslint_d",
       },
     })
