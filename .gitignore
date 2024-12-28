@@ -6,3 +6,7 @@
 /coc
 /kitty
 /tmux/plugins
+/zsh/.zsh_history
+/zsh/.zsh_sessions
+/zsh/.oh-my-zsh
+
