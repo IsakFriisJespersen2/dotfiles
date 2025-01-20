@@ -23,6 +23,7 @@ return {
       vim.keymap.set("n", "?", api.tree.toggle_help, opts("Help"))
       vim.keymap.set("n", "l", api.node.open.edit, opts("Open"))
       vim.keymap.set("n", "h", api.node.navigate.parent_close, opts("Close Directory"))
+      vim.keymap.set("n", "<C-k>", "7k", { buffer = bufnr, desc = "Jump 7 lines" })
     end
 
     nvimtree.setup({
