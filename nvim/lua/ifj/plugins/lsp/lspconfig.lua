@@ -3,21 +3,18 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
+    -- "saghen/blink.cmp",
     { "antosha417/nvim-lsp-file-operations", config = true },
     { "folke/neodev.nvim", opts = {} },
   },
   config = function()
-    -- import lspconfig plugin
     local lspconfig = require("lspconfig")
 
-    -- import mason_lspconfig plugin
     local mason_lspconfig = require("mason-lspconfig")
 
-    -- import cmp-nvim-lsp plugin
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
     local keymap = vim.keymap -- for conciseness
-
 
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -66,8 +63,19 @@ return {
 
         opts.desc = "Restart LSP"
         keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+
+        opts.desc = "List open buffers"
+        keymap.set("n", "<leader><leader>", ":Telescope buffers<CR>", opts) -- mapping to restart lsp if necessary
+
+        opts.desc = "Go to definition in vertical split"
+        keymap.set("n", "gvd", function()
+          vim.cmd("vsplit")
+          vim.lsp.buf.definition()
+        end, opts)
       end,
     })
+
+    -- local capabilities = require("blink.cmp").get_lsp_capabilities()
 
     -- used to enable autocompletion (assign to every lsp server config)
     local capabilities = cmp_nvim_lsp.default_capabilities()
@@ -133,17 +141,17 @@ return {
           },
         })
       end,
-      ['helm_ls'] = function()
-      lspconfig[ 'helm_ls' ].setup({
+      ["helm_ls"] = function()
+        lspconfig["helm_ls"].setup({
           settings = {
-            ['helm-ls'] = {
+            ["helm-ls"] = {
               yamlls = {
                 path = "yamlls",
               },
             },
           },
         })
-    end,
+      end,
     })
-  end
+  end,
 }
