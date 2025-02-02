@@ -23,6 +23,14 @@ return {
         -- See `:help vim.lsp.*` for documentation on any of the below functions
         local opts = { buffer = ev.buf, silent = true }
 
+        local client = vim.lsp.get_client_by_id(ev.data.client_id)
+        if vim.tbl_contains({ "null-ls" }, client.name) then -- blacklist lsp
+          return
+        end
+        require("lsp_signature").on_attach({
+          -- ... setup options here ...
+        }, opts.buffer)
+
         vim.api.nvim_set_keymap("n", "<leader>td", ":lua ToggleDiagnostics()<CR>", { noremap = true, silent = true })
         -- set keybinds
         opts.desc = "Show LSP references"
