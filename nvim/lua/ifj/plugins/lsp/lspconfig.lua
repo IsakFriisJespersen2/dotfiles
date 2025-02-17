@@ -31,8 +31,7 @@ return {
           -- ... setup options here ...
         }, opts.buffer)
 
-        vim.api.nvim_set_keymap("n", "<leader>td", ":lua ToggleDiagnostics()<CR>", { noremap = true, silent = true })
-        -- set keybinds
+
         opts.desc = "Show LSP references"
         keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 
@@ -155,6 +154,17 @@ return {
             ["helm-ls"] = {
               yamlls = {
                 path = "yamlls",
+              },
+            },
+          },
+        })
+      end,
+      ["gopls"] = function()
+        lspconfig["gopls"].setup({
+          settings = {
+            ["gopls"] = {
+              yamlls = {
+                path = "go",
               },
             },
           },
