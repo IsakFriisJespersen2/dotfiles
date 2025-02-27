@@ -31,7 +31,6 @@ return {
           -- ... setup options here ...
         }, opts.buffer)
 
-
         opts.desc = "Show LSP references"
         keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 
@@ -168,6 +167,12 @@ return {
               },
             },
           },
+        })
+      end,
+      ["ember"] = function()
+        lspconfig["ember"].setup({
+          capabilities = capabilities,
+          filetypes = { "handlebars", "typescript", "javascript", "typescript.glimmer", "javascript.glimmer" },
         })
       end,
     })

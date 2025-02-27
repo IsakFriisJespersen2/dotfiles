@@ -9,8 +9,8 @@ keymap.set("v", "<", "<gv")
 keymap.set("v", ">", ">gv")
 
 -- jump multiple liness
-keymap.set("n", "<C-J>", "7j", { desc = "Jump 7 lines down" })
-keymap.set("n", "<C-K>", "7k", { desc = "Jump 7 lines up" })
+keymap.set({ "n", "v" }, "<C-J>", "7j", { desc = "Jump 7 lines down" })
+keymap.set({ "n", "v" }, "<C-K>", "7k", { desc = "Jump 7 lines up" })
 
 -- Jump start/ end of line
 keymap.set({ "n", "v" }, "<C-l>", "$")
