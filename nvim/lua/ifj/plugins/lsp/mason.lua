@@ -44,6 +44,7 @@ return {
         "docker_compose_language_service",
         "helm_ls",
         "yamlls",
+        "terraformls"
       },
     })
 

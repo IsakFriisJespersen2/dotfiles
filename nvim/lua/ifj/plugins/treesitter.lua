@@ -15,12 +15,14 @@ return {
       indent = { enable = true },
       -- ensure these language parsers are installed
       ensure_installed = {
+        "terraform",
         "glimmer",
-        "handlebars",
+        "python",
         "json",
         "javascript",
         "typescript",
         "tsx",
+        "helm",
         "yaml",
         "html",
         "css",

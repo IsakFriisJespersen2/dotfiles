@@ -14,7 +14,7 @@ keymap.set({ "n", "v" }, "<C-K>", "7k", { desc = "Jump 7 lines up" })
 
 -- Jump start/ end of line
 keymap.set({ "n", "v" }, "<C-l>", "$")
-keymap.set({ "n", "v" }, "<C-h>", "0")
+keymap.set({ "n", "v" }, "<C-h>", "^")
 
 -- Go left/ right when in insert mode
 keymap.set("i", "<C-l>", "<Right>")
@@ -31,6 +31,12 @@ keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
 -- delete single character:without copying into register
 keymap.set("n", "x", '"_x')
+
+-- delete without copying into register
+keymap.set({'n', 'v'}, 'd', '"_d')
+--
+-- delete without copying into register
+keymap.set({'n', 'v'}, 'D', '"_D')
 
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment

@@ -1,10 +1,32 @@
-return {
-  "mg979/vim-visual-multi",
-  init = function()
-    vim.keymap.set("n", "¬", "<Plug>(VM-Add-Cursor-Down)", { noremap = false })
-    vim.keymap.set("n", "º", "<Plug>(VM-Add-Cursor-Up)", { noremap = false })
-    -- vim.api.nvim_set_hl(0, "VM_Extend", { fg = "#FFFFFF", bg = "#FF0000" }) -- Red background
-    -- vim.api.nvim_set_hl(0, "VM_Cursor", { fg = "#FFFFFF", bg = "#00FF00" }) -- Green background
-    -- vim.api.nvim_set_hl(0, "VM_CursorCross", { fg = "#FFFFFF", bg = "#0000FF" }) -- Blue background
-  end,
-}
+return {}
+-- return {
+--   "mg979/vim-visual-multi",
+--   init = function()
+--
+--     -- vim.g.VM_default_mappings = 0
+--     -- vim.g.VM_mouse_mappings = 1
+--     -- vim.g.VM_theme = 'ocean'
+--     vim.g.VM_highlight_matches = 'underline'
+--
+--     vim.keymap.set({ "n", "v" }, "¬", "<Plug>(VM-Add-Cursor-Down)", { noremap = false })
+--     vim.keymap.set({ "n", "v" }, "º", "<Plug>(VM-Add-Cursor-Up)", { noremap = false })
+--     -- vim.api.nvim_set_hl(0, "VM_Extend", { fg = "#FFFFFF", bg = "#FF0000" }) -- Red background
+--     -- vim.api.nvim_set_hl(0, "VM_Cursor", { fg = "#FFFFFF", bg = "#00FF00" }) -- Green background
+--     -- vim.api.nvim_set_hl(0, "VM_CursorCross", { fg = "#FFFFFF", bg = "#0000FF" }) -- Blue background
+--
+--     -- Set up an autocmd to ensure highlights are set after colorscheme changes
+--     vim.api.nvim_create_autocmd("ColorScheme", {
+--       pattern = "*",
+--       callback = function()
+--         -- Main cursor
+--         vim.api.nvim_set_hl(0, "VM_Cursor", {
+--           bg = "#FFAF00",
+--           fg = "#000000",
+--           bold = true,
+--           nocombine = true,
+--         })
+--         -- Secondary cursors
+--       end,
+--     })
+--   end,
+-- }
