@@ -26,11 +26,11 @@ return {
     -- loads vscode style snippets from installed plugins (e.g. friendly-snippets)
     require("luasnip.loaders.from_vscode").lazy_load()
 
-
     cmp.setup({
       completion = {
         completeopt = "menu,menuone,preview,noselect",
       },
+
       snippet = { -- configure how nvim-cmp interacts with snippet engine
         expand = function(args)
           luasnip.lsp_expand(args.body)
@@ -48,12 +48,61 @@ return {
 
       -- sources for autocompletion
       sources = cmp.config.sources({
+        { name = "nvim_lua" },
         { name = "nvim_lsp" },
-        { name = "luasnip" }, -- snippets
-        { name = "buffer" }, -- text within current buffer
-        { name = "path" }, -- file system paths
+        { name = "luasnip" },
+      }, {
+        { name = "path" },
+        { name = "buffer", keyword_length = 5 },
+      }, {
+        { name = "gh_issues" },
       }),
+      sorting = {
+        comparators = {
+          cmp.config.compare.offset,
+          cmp.config.compare.exact,
+          cmp.config.compare.score,
 
+          -- copied from cmp-under, but I don't think I need the plugin for this.
+          -- I might add some more of my own.
+          function(entry1, entry2)
+            local _, entry1_under = entry1.completion_item.label:find("^_+")
+            local _, entry2_under = entry2.completion_item.label:find("^_+")
+            entry1_under = entry1_under or 0
+            entry2_under = entry2_under or 0
+            if entry1_under > entry2_under then
+              return false
+            elseif entry1_under < entry2_under then
+              return true
+            end
+          end,
+
+          cmp.config.compare.kind,
+          cmp.config.compare.sort_text,
+          cmp.config.compare.length,
+          cmp.config.compare.order,
+        },
+      },
+      cmp.setup.cmdline(":", {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = "path" },
+        }, {
+          { name = "cmdline" },
+        }),
+      }),
+      -- Command line setup
+      -- cmp.setup.cmdline(":", {
+      --   mapping = cmp.mapping.preset.cmdline({
+      --     ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
+      --     ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
+      --     -- ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+      --     -- ["<C-f>"] = cmp.mapping.scroll_docs(4),
+      --     -- ["<C-x>"] = cmp.mapping.complete(), -- show completion suggestions
+      --     -- ["<C-e>"] = cmp.mapping.abort(), -- close completion window
+      --     -- ["<CR>"] = cmp.mapping.confirm({ select = false }),
+      --   }),
+      -- }),
       -- configure lspkind for vs-code like pictograms in completion menu
       formatting = {
         format = lspkind.cmp_format({

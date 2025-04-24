@@ -29,7 +29,7 @@ return {
       mc.matchSkipCursor(1)
     end)
     set({ "n", "x" }, "<C-n>", function()
-      mc.matchAddCursor(-1)
+      mc.matchAddCursor(1)
     end)
     set({ "n", "x" }, "<leader>S", function()
       mc.matchSkipCursor(-1)

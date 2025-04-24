@@ -8,6 +8,11 @@ keymap.set("v", "JK", "<ESC>", { desc = "Exit insert mode with jk" })
 keymap.set("v", "<", "<gv")
 keymap.set("v", ">", ">gv")
 
+
+-- Junp down/up center cursor
+keymap.set("n", "<C-u>", "<C-u>zz")
+keymap.set("n", "<C-d>", "<C-d>zz")
+
 -- jump multiple liness
 keymap.set({ "n", "v" }, "<C-J>", "7j", { desc = "Jump 7 lines down" })
 keymap.set({ "n", "v" }, "<C-K>", "7k", { desc = "Jump 7 lines up" })
@@ -32,11 +37,6 @@ keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 -- delete single character:without copying into register
 keymap.set("n", "x", '"_x')
 
--- delete without copying into register
-keymap.set({'n', 'v'}, 'd', '"_d')
---
--- delete without copying into register
-keymap.set({'n', 'v'}, 'D', '"_D')
 
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
