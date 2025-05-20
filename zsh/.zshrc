@@ -68,7 +68,7 @@ COMPLETION_WAITING_DOTS="true"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
- HIST_STAMPS="yyyy-mm-dd"
+HIST_STAMPS="yyyy-mm-dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -84,7 +84,7 @@ docker
 zsh-autosuggestions
 zsh-syntax-highlighting
 kubectl
-vi-mode
+zsh-vi-mode
 )
 
 
@@ -117,7 +117,7 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.config/zsh/.zshrc"
 # alias ohmyzsh="mate ~/.config/zsh/.oh-my-zsh"
-source $HOME/coding/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source $HOME/coding/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
@@ -133,12 +133,8 @@ alias ls='eza'
 export PATH="$PATH:/Users/isakfriis-jespersen/.local/bin"
 
 
-function zvm_config() {
-  ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
-  ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
-}
 
-source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+# source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 # bindkey -v  # Enable vi mode
 # bindkey -M viins 'jk' vi-cmd-mode  # Map 'jk' to exit insert mode
@@ -164,3 +160,9 @@ export FZF_CTRL_R_OPTS="
   --header 'Press CTRL-Y to copy command into clipboard'"
 
 export PATH="/opt/homebrew/opt/node@22/bin:$PATH"
+
+ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+function zvm_config() {
+  ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+  ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+}

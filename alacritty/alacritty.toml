@@ -1,6 +1,3 @@
-import = [
-  "~/.config/alacritty/catppuccin-mocha.toml"
-]
 
 [env]
 TERM = "xterm-256color"
@@ -48,3 +45,8 @@ chars = "\u2664" ## ♤
 key = "S"
 mods = "Control|Shift"
 chars = "\u2665" ## ♥
+
+[general]
+import = [
+  "~/.config/alacritty/catppuccin-mocha.toml"
+]

@@ -1,5 +1,5 @@
 return {
-  "nvim-ts-autotag",
+  "windwp/nvim-ts-autotag",
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     local nvimtsauto = require("nvim-ts-autotag")
