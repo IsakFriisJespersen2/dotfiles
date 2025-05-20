@@ -27,9 +27,6 @@ return {
         if vim.tbl_contains({ "null-ls" }, client.name) then -- blacklist lsp
           return
         end
-        require("lsp_signature").on_attach({
-          -- ... setup options here ...
-        }, opts.buffer)
 
         opts.desc = "Show LSP references"
         keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
@@ -84,7 +81,8 @@ return {
     -- local capabilities = require("blink.cmp").get_lsp_capabilities()
 
     -- used to enable autocompletion (assign to every lsp server config)
-    local capabilities = cmp_nvim_lsp.default_capabilities()
+    -- local capabilities = cmp_nvim_lsp.default_capabilities()
+    local capabilities = require('blink.cmp').get_lsp_capabilities()
 
     -- Change the Diagnostic symbols in the sign column (gutter)
     -- (not in youtube nvim video)

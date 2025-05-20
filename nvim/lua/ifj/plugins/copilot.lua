@@ -8,18 +8,21 @@ return {
   },
   config = function()
     vim.cmd("Copilot setup")
-    print("Copilot setup 🤖")
+    vim.cmd("Copilot enable")
+
     vim.keymap.set("i", "<C-j>", 'copilot#Accept("\\<CR>")', {
       expr = true,
       replace_keycodes = false,
       desc = "Enable Copilot",
     })
+
     vim.keymap.set("n", "<leader>cd", function()
       vim.cmd(":Copilot disable", {
         desc = "Disable Copilot",
       })
       print("Copilot deactivated 🔥")
     end)
+
     vim.keymap.set("n", "<leader>ce", function()
       vim.cmd("Copilot enable")
       print("Copilot enabled 🤖")

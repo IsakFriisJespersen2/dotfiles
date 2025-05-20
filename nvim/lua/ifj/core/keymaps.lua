@@ -4,9 +4,7 @@ local keymap = vim.keymap -- for conciseness
 
 keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 keymap.set("v", "JK", "<ESC>", { desc = "Exit insert mode with jk" })
-
-keymap.set("v", "<", "<gv")
-keymap.set("v", ">", ">gv")
+keymap.set("v", "<", "<gv") keymap.set("v", ">", ">gv")
 
 
 -- Junp down/up center cursor
@@ -14,8 +12,8 @@ keymap.set("n", "<C-u>", "<C-u>zz")
 keymap.set("n", "<C-d>", "<C-d>zz")
 
 -- jump multiple liness
-keymap.set({ "n", "v" }, "<C-J>", "7j", { desc = "Jump 7 lines down" })
-keymap.set({ "n", "v" }, "<C-K>", "7k", { desc = "Jump 7 lines up" })
+keymap.set({ "n", "v" }, "<C-j>", "7j", { desc = "Jump 7 lines down" })
+keymap.set({ "n", "v" }, "<C-k>", "7k", { desc = "Jump 7 lines up" })
 
 -- Jump start/ end of line
 keymap.set({ "n", "v" }, "<C-l>", "$")
@@ -55,3 +53,4 @@ keymap.set("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" }) 
 keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" }) --  move current buffer to new tab
 
 keymap.set("n", "<leader>qr", ":cgetexpr getqflist()<CR>", { noremap = true, silent = true })
+

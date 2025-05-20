@@ -29,6 +29,7 @@ return {
       ensure_installed = {
         "glint",
         "ember",
+        "ts_ls",
         "gopls",
         "html",
         "cssls",

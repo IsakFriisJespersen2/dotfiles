@@ -1,12 +1,3 @@
-bindkey -v  # Enable vi mode
-bindkey -M viins 'jk' vi-cmd-mode  # Map 'jk' to exit insert mode
-
-DISABLE_AUTO_UPDATE=true
-
-VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
-VI_MODE_SET_CURSOR=true
-PROMPT="$PROMPT\$(vi_mode_prompt_info)"
-RPROMPT="\$(vi_mode_prompt_info)$RPROMPT"
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -130,20 +121,41 @@ source $HOME/coding/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.config/zsh/.p10k.zsh.
 [[ ! -f ~/.config/zsh/.p10k.zsh ]] || source ~/.config/zsh/.p10k.zsh
-# export PATH="/opt/homebrew/opt/php@8.0/bin:$PATH"
-# export PATH="/opt/homebrew/opt/php@8.0/sbin:$PATH"
 
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH="/opt/homebrew/opt/php@8.0/bin:$PATH"
+export PATH="/opt/homebrew/opt/php@8.0/sbin:$PATH"
+
 
 alias ls='eza'
+
 
 # Created by `pipx` on 2025-03-10 12:36:27
 export PATH="$PATH:/Users/isakfriis-jespersen/.local/bin"
 
 
+function zvm_config() {
+  ZVM_LINE_INIT_MODE=$ZVM_MODE_INSERT
+  ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+}
+
+source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+
+# bindkey -v  # Enable vi mode
+# bindkey -M viins 'jk' vi-cmd-mode  # Map 'jk' to exit insert mode
+
+DISABLE_AUTO_UPDATE=true
+
+# VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+# VI_MODE_SET_CURSOR=true
+# PROMPT="$PROMPT\$(vi_mode_prompt_info)"
+# RPROMPT="\$(vi_mode_prompt_info)$RPROMPT"
+
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 export FZF_CTRL_R_OPTS="
   --preview 'echo {}' \
   --preview-window=up:3:wrap \
@@ -151,3 +163,4 @@ export FZF_CTRL_R_OPTS="
   --color header:italic \
   --header 'Press CTRL-Y to copy command into clipboard'"
 
+export PATH="/opt/homebrew/opt/node@22/bin:$PATH"
