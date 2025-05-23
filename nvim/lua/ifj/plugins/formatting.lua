@@ -21,7 +21,7 @@ return {
         liquid = { "prettier" },
         lua = { "stylua" },
         python = { "isort", "black" },
-        go = { "gopls" },
+        -- go = { "gopls" },
       },
       -- format_on_save = {
       --   lsp_fallback = false,
