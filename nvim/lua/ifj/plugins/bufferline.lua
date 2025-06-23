@@ -4,6 +4,7 @@ return {
   version = "*",
   opts = {
     options = {
+      enforce_regular_tabs = true,
       mode = "tabs",
     },
   },

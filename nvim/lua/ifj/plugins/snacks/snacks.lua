@@ -12,47 +12,45 @@ return {
     picker = { enabled = false },
     notifier = { enabled = false },
     quickfile = { enabled = false },
-    scope = { enabled = false },
+    scope = { enabled = true },
     scroll = { enabled = true },
     statuscolumn = { enabled = false },
     words = { enabled = true },
     gitbrowse = {
       enabled = true,
-      --   what = "permalink",
-      --   config = function(opts, defaults)
-      --     table.insert(opts.url_patterns, {
-      --       ["git.booli.se"] = {
-      --         branch = "/-/tree/{branch}",
-      --         file = "/-/blob/{branch}/{file}#L{line_start}-L{line_end}",
-      --         permalink = "/-/blob/{commit}/{file}#L{line_start}-L{line_end}",
-      --         commit = "/-/commit/{commit}",
-      --       },
-      --     })
-      --   end,
+      what = "permalink",
+      url_patterns = {
+        ["git.booli.se"] = {
+          branch = "/-/tree/{branch}",
+          file = "/-/blob/{branch}/{file}#L{line_start}-L{line_end}",
+          permalink = "/-/blob/{commit}/{file}#L{line_start}-L{line_end}",
+          commit = "/-/commit/{commit}",
+        },
+      },
     },
-  },
-  keys = {
-    {
-      "<leader>.",
-      function()
-        Snacks.scratch()
-      end,
-      desc = "Toggle Scratch Buffer",
-    },
-    {
-      "<leader>S",
-      function()
-        Snacks.scratch.select()
-      end,
-      desc = "Select Scratch Buffer",
-    },
-    {
-      "<leader>gB",
-      function()
-        Snacks.gitbrowse.open({ what = "commit" })
-      end,
-      desc = "Git Browse",
-      mode = { "n", "v" },
+    keys = {
+      {
+        "<leader>.",
+        function()
+          Snacks.scratch()
+        end,
+        desc = "Toggle Scratch Buffer",
+      },
+      {
+        "<leader>S",
+        function()
+          Snacks.scratch.select()
+        end,
+        desc = "Select Scratch Buffer",
+      },
+      {
+        "<leader>gB",
+        function()
+          Snacks.gitbrowse.open({ what = "commit" })
+        end,
+        desc = "Git Browse",
+        mode = { "n", "v" },
+      },
     },
   },
 }

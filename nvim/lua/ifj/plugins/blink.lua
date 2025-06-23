@@ -27,13 +27,17 @@ return {
     -- See :h blink-cmp-config-keymap for defining your own keymap
     keymap = {
       preset = "default",
-      ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation' },
+      ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
       ["<C-k>"] = { "select_prev", "fallback" },
       ["<C-j>"] = { "select_next", "fallback" },
-      ['<CR>'] = { 'accept', 'fallback' },
+      -- ['<CR>'] = { 'accept', 'fallback' },
+      -- ['<Esc>'] = { 'hide' },
     },
 
-    cmdline = { enabled = false },
+    cmdline = {
+      keymap = { preset = "inherit" },
+      completion = { menu = { auto_show = true }, ghost_text = { enabled = true } },
+    },
 
     appearance = {
       -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
@@ -43,8 +47,8 @@ return {
 
     -- (Default) Only show the documentation popup when manually triggered
     completion = {
-      documentation = { auto_show = true, auto_show_delay_ms = 500 },
-      accept = { auto_brackets = { enabled = true } },
+      documentation = { auto_show = true },
+      accept = { auto_brackets = { enabled = false } },
     },
 
     -- Default list of enabled providers defined so that you can extend it
